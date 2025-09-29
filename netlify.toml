@@ -5,15 +5,12 @@
 [build.environment]
   NODE_VERSION = "18"
   SECRETS_SCAN_ENABLED = "false"
+  SECRETS_SCAN_OMIT_KEYS = "GMAIL_USER,GMAIL_APP_PASSWORD"
 
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
-
-# Disable secrets scanning for environment variables
-[build.environment]
-  SECRETS_SCAN_OMIT_KEYS = "GMAIL_USER,GMAIL_APP_PASSWORD"
 
 [[headers]]
   for = "/CV_Soufiane.pdf"
