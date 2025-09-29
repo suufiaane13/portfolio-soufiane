@@ -1,0 +1,5 @@
+# Netlify redirects for SPA
+/*    /index.html   200
+
+# API routes
+/api/contact    /.netlify/functions/contact    200
