@@ -1,7 +1,7 @@
 import type React from "react"
 import type { Metadata } from "next"
 import { Space_Grotesk, Inter } from "next/font/google"
-import { Analytics } from "@vercel/analytics/next"
+// import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
 import { Toaster } from "sonner"
 import "./globals.css"
@@ -74,6 +74,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" className="dark">
+      <head>
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/logo.png" />
+      </head>
       <body className={`${spaceGrotesk.variable} ${inter.variable} font-sans antialiased`}>
         <Suspense fallback={null}>{children}</Suspense>
         <Toaster 
@@ -82,7 +86,7 @@ export default function RootLayout({
           richColors={true}
           closeButton={true}
         />
-        <Analytics />
+        {/* <Analytics /> */}
       </body>
     </html>
   )

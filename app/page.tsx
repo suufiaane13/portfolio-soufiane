@@ -19,12 +19,12 @@ export default function Home() {
     setIsLoading(false)
   }
 
-  // Préchargement des images critiques
-  useEffect(() => {
-    const preloadImages = [
-      "/logo.png",
-      "/placeholder-user.jpg"
-    ]
+    // Préchargement des images critiques
+    useEffect(() => {
+      const preloadImages = [
+        "/logo.png",
+        "/profil/hajji.png"
+      ]
 
     const imagePromises = preloadImages.map(src => {
       return new Promise((resolve, reject) => {

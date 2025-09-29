@@ -42,103 +42,115 @@ export function HeroSection() {
 
       // Animation du logo background
         // Logo Animation - Multiple professional effects
-        tl.fromTo(logoRef.current, 
-          { 
-            scale: 0.3, 
-            opacity: 0,
-            rotation: -180,
-            y: 100
-          },
-          { 
-            scale: 1, 
-            opacity: 0.05,
-            rotation: 0,
-            y: 0,
-            duration: 2.5,
-            ease: "elastic.out(1, 0.3)"
-          }
-        )
+        if (logoRef.current) {
+          tl.fromTo(logoRef.current, 
+            { 
+              scale: 0.3, 
+              opacity: 0,
+              rotation: -180,
+              y: 100
+            },
+            { 
+              scale: 1, 
+              opacity: 0.05,
+              rotation: 0,
+              y: 0,
+              duration: 2.5,
+              ease: "elastic.out(1, 0.3)"
+            }
+          )
+        }
         
         // Logo continuous breathing animation
-        tl.to(logoRef.current, {
-          scale: 1.05,
-          duration: 3,
-          ease: "power2.inOut",
-          yoyo: true,
-          repeat: -1
-        }, "-=1.5")
-        
-        // Logo subtle rotation animation
-        tl.to(logoRef.current, {
-          rotation: 5,
-          duration: 4,
-          ease: "power1.inOut",
-          yoyo: true,
-          repeat: -1
-        }, "-=2")
+        if (logoRef.current) {
+          tl.to(logoRef.current, {
+            scale: 1.05,
+            duration: 3,
+            ease: "power2.inOut",
+            yoyo: true,
+            repeat: -1
+          }, "-=1.5")
+          
+          // Logo subtle rotation animation
+          tl.to(logoRef.current, {
+            rotation: 5,
+            duration: 4,
+            ease: "power1.inOut",
+            yoyo: true,
+            repeat: -1
+          }, "-=2")
+        }
 
       // Animation du titre principal avec effet de révélation
-      tl.fromTo(titleRef.current,
-        { 
-          y: 100, 
-          opacity: 0,
-          scale: 0.8,
-          rotationX: 90
-        },
-        { 
-          y: 0, 
-          opacity: 1,
-          scale: 1,
-          rotationX: 0,
-          duration: 1.5,
-          ease: "power3.out"
-        }, "-=1.5"
-      )
+      if (titleRef.current) {
+        tl.fromTo(titleRef.current,
+          { 
+            y: 100, 
+            opacity: 0,
+            scale: 0.8,
+            rotationX: 90
+          },
+          { 
+            y: 0, 
+            opacity: 1,
+            scale: 1,
+            rotationX: 0,
+            duration: 1.5,
+            ease: "power3.out"
+          }, "-=1.5"
+        )
+      }
 
 
       // Animation du sous-titre
-      tl.fromTo(subtitleRef.current,
-        { 
-          y: 50, 
-          opacity: 0 
-        },
-        { 
-          y: 0, 
-          opacity: 1,
-          duration: 0.8,
-          ease: "power2.out"
-        }, "-=0.8"
-      )
+      if (subtitleRef.current) {
+        tl.fromTo(subtitleRef.current,
+          { 
+            y: 50, 
+            opacity: 0 
+          },
+          { 
+            y: 0, 
+            opacity: 1,
+            duration: 0.8,
+            ease: "power2.out"
+          }, "-=0.8"
+        )
+      }
 
       // Animation de la description
-      tl.fromTo(descriptionRef.current,
-        { 
-          y: 30, 
-          opacity: 0 
-        },
-        { 
-          y: 0, 
-          opacity: 1,
-          duration: 0.6,
-          ease: "power2.out"
-        }, "-=0.6"
-      )
+      if (descriptionRef.current) {
+        tl.fromTo(descriptionRef.current,
+          { 
+            y: 30, 
+            opacity: 0 
+          },
+          { 
+            y: 0, 
+            opacity: 1,
+            duration: 0.6,
+            ease: "power2.out"
+          }, "-=0.6"
+        )
+      }
 
       // Animation du bouton
-      tl.fromTo(buttonRef.current,
-        { 
-          y: 20, 
-          opacity: 0,
-          scale: 0.9
-        },
-        { 
-          y: 0, 
-          opacity: 1,
-          scale: 1,
-          duration: 0.5,
-          ease: "back.out(1.7)"
-        }, "-=0.4"
-      )
+      if (buttonRef.current) {
+        tl.fromTo(buttonRef.current,
+          { 
+            y: 20, 
+            opacity: 0,
+            scale: 0.9
+          },
+          { 
+            y: 0, 
+            opacity: 1,
+            scale: 1,
+            duration: 0.5,
+            ease: "back.out(1.7)"
+          }, "-=0.4"
+        )
+      }
 
       // Animation des icônes flottantes
       if (floatingIconsRef.current?.children) {
@@ -255,30 +267,34 @@ export function HeroSection() {
       })
 
       // Logo parallax effect with multiple layers
-      gsap.to(logoRef.current, {
-        y: -150,
-        rotation: 15,
-        scale: 1.15,
-        ease: "none",
-        scrollTrigger: {
-          trigger: heroRef.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: 1.5
+        if (logoRef.current) {
+          gsap.to(logoRef.current, {
+            y: -150,
+            rotation: 15,
+            scale: 1.15,
+            ease: "none",
+            scrollTrigger: {
+              trigger: heroRef.current,
+              start: "top top",
+              end: "bottom top",
+              scrub: 1.5
+            }
+          })
         }
-      })
       
       // Logo opacity fade on scroll
-      gsap.to(logoRef.current, {
-        opacity: 0.02,
-        ease: "none",
-        scrollTrigger: {
-          trigger: heroRef.current,
-          start: "top top",
-          end: "center top",
-          scrub: 1
-        }
-      })
+      if (logoRef.current) {
+        gsap.to(logoRef.current, {
+          opacity: 0.02,
+          ease: "none",
+          scrollTrigger: {
+            trigger: heroRef.current,
+            start: "top top",
+            end: "center top",
+            scrub: 1
+          }
+        })
+      }
 
     }, heroRef)
 

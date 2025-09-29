@@ -41,96 +41,112 @@ export function GlobalLoader({ onComplete }: GlobalLoaderProps) {
       const tl = gsap.timeline()
 
       // 1. Révélation du logo avec effet "zoom-in" professionnel
-      tl.fromTo(logoRef.current, {
-        opacity: 0,
-        scale: 0.1,
-        rotation: -45,
-        y: 80,
-        x: 0
-      }, {
-        opacity: 1,
-        scale: 1.3,  // Logo plus grand
-        rotation: 0,
-        y: 0,
-        x: 0,
-        duration: 1.8,
-        ease: "power3.out"
-      })
+      if (logoRef.current) {
+        tl.fromTo(logoRef.current, {
+          opacity: 0,
+          scale: 0.1,
+          rotation: -45,
+          y: 80,
+          x: 0
+        }, {
+          opacity: 1,
+          scale: 1.3,  // Logo plus grand
+          rotation: 0,
+          y: 0,
+          x: 0,
+          duration: 1.8,
+          ease: "power3.out"
+        })
+      }
 
       // 1.5. Ajustement de la taille finale
-      tl.to(logoRef.current, {
-        scale: 1.2,  // Taille finale plus grande
-        duration: 0.4,
-        ease: "power2.out"
-      })
+      if (logoRef.current) {
+        tl.to(logoRef.current, {
+          scale: 1.2,  // Taille finale plus grande
+          duration: 0.4,
+          ease: "power2.out"
+        })
+      }
 
       // 2. Animation de "bounce" professionnel (ajusté pour la grande taille)
-      tl.to(logoRef.current, {
-        y: -20,  // Mouvement plus grand
-        duration: 0.6,
-        ease: "power2.out"
-      })
-      .to(logoRef.current, {
-        y: 0,
-        duration: 0.8,
-        ease: "bounce.out"
-      })
+      if (logoRef.current) {
+        tl.to(logoRef.current, {
+          y: -20,  // Mouvement plus grand
+          duration: 0.6,
+          ease: "power2.out"
+        })
+        .to(logoRef.current, {
+          y: 0,
+          duration: 0.8,
+          ease: "bounce.out"
+        })
+      }
 
       // 3. Animation de "tilt" élégant (ajusté pour la grande taille)
-      tl.to(logoRef.current, {
-        rotation: 4,
-        scale: 1.25,  // Plus grand pendant le tilt
-        duration: 0.4,
-        ease: "power2.inOut"
-      })
-      .to(logoRef.current, {
-        rotation: -3,
-        scale: 1.22,  // Ajusté pour la grande taille
-        duration: 0.4,
-        ease: "power2.inOut"
-      })
-      .to(logoRef.current, {
-        rotation: 0,
-        scale: 1.2,  // Retour à la taille finale
-        duration: 0.6,
-        ease: "power3.out"
-      })
+      if (logoRef.current) {
+        tl.to(logoRef.current, {
+          rotation: 4,
+          scale: 1.25,  // Plus grand pendant le tilt
+          duration: 0.4,
+          ease: "power2.inOut"
+        })
+        .to(logoRef.current, {
+          rotation: -3,
+          scale: 1.22,  // Ajusté pour la grande taille
+          duration: 0.4,
+          ease: "power2.inOut"
+        })
+        .to(logoRef.current, {
+          rotation: 0,
+          scale: 1.2,  // Retour à la taille finale
+          duration: 0.6,
+          ease: "power3.out"
+        })
+      }
 
       // 4. Animation de "float" subtile (ajusté pour la grande taille)
-      tl.to(logoRef.current, {
-        y: -12,  // Mouvement plus grand
-        duration: 1.2,
-        ease: "power2.inOut",
-        yoyo: true,
-        repeat: 1
-      })
+      if (logoRef.current) {
+        tl.to(logoRef.current, {
+          y: -12,  // Mouvement plus grand
+          duration: 1.2,
+          ease: "power2.inOut",
+          yoyo: true,
+          repeat: 1
+        })
+      }
 
       // 5. Animation continue de "breathing" professionnel (ajusté pour la grande taille)
-      tl.to(logoRef.current, {
-        scale: 1.25,  // Respiration plus visible
-        y: -5,  // Mouvement plus grand
-        duration: 2.5,
-        ease: "power2.inOut",
-        yoyo: true,
-        repeat: -1
-      }, "-=0.5")
+      if (logoRef.current) {
+        tl.to(logoRef.current, {
+          scale: 1.25,  // Respiration plus visible
+          y: -5,  // Mouvement plus grand
+          duration: 2.5,
+          ease: "power2.inOut",
+          yoyo: true,
+          repeat: -1
+        }, "-=0.5")
+      }
 
 
       // 3. Révélation du texte
-      tl.to(textRef.current, {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        ease: "power3.out"
-      }, "-=0.3")
+      if (textRef.current) {
+        tl.to(textRef.current, {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power3.out"
+        }, "-=0.3")
+      }
 
       // 4. Révélation simultanée de la barre de progression et du pourcentage
-      tl.to([progressRef.current, percentageRef.current], {
-        opacity: 1,
-        y: 0,
-        duration: 0.6,
-        ease: "power3.out"
-      }, "-=0.2")
+      if (progressRef.current && percentageRef.current) {
+        tl.to([progressRef.current, percentageRef.current], {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          ease: "power3.out"
+        }, "-=0.2")
+      }
 
       // 5. Animation synchronisée de la barre de progression et du pourcentage
       const progressBar = progressRef.current?.querySelector('.progress-fill')
