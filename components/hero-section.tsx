@@ -328,7 +328,7 @@ export function HeroSection() {
               blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
             />
           </div>
-        </div>
+      </div>
 
       {/* Floating Icons */}
       <div 
@@ -408,8 +408,8 @@ export function HeroSection() {
           className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto"
         >
         <div className="text-center p-4 rounded-lg bg-card/50 backdrop-blur-sm border border-primary/20 hover:border-primary/40 hover:bg-primary/5 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/10">
-          <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-1">3+</div>
-          <div className="text-xs sm:text-sm text-muted-foreground">Années d'expérience</div>
+          <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-1">∞</div>
+          <div className="text-xs sm:text-sm text-muted-foreground">Innovation</div>
         </div>
           <div className="text-center p-4 rounded-lg bg-card/50 backdrop-blur-sm border border-primary/20 hover:border-primary/40 hover:bg-primary/5 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/10">
             <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-1">15+</div>
