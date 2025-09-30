@@ -24,6 +24,16 @@
   status = 200
 
 [[redirects]]
+  from = "/world-explorer.png"
+  to = "/world-explorer.png"
+  status = 200
+
+[[redirects]]
+  from = "/yobo.png"
+  to = "/yobo.png"
+  status = 200
+
+[[redirects]]
   from = "/*.png"
   to = "/:splat.png"
   status = 200

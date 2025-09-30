@@ -4,6 +4,7 @@ const path = require('path');
 // Copy public assets to .next/static
 const publicDir = path.join(__dirname, '../public');
 const staticDir = path.join(__dirname, '../.next/static');
+const outDir = path.join(__dirname, '../out');
 
 // Create static directory if it doesn't exist
 if (!fs.existsSync(staticDir)) {
@@ -26,7 +27,16 @@ function copyRecursive(src, dest) {
   }
 }
 
-// Copy public directory
+// Copy public directory to static
 copyRecursive(publicDir, staticDir);
 
+// Also copy to out directory for static export
+if (fs.existsSync(outDir)) {
+  copyRecursive(publicDir, outDir);
+}
+
 console.log('Assets copied successfully!');
+console.log('Copied to:', staticDir);
+if (fs.existsSync(outDir)) {
+  console.log('Also copied to:', outDir);
+}

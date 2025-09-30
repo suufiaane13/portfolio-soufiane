@@ -45,7 +45,7 @@ export function ProjectsSection() {
                 className="flex-shrink-0 w-80 overflow-hidden bg-card border-border hover:border-primary transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 group"
               >
                 {/* Mobile: Horizontal image */}
-                <div className="relative overflow-hidden">
+                <div className="relative overflow-hidden h-40">
                   <Image
                     src={project.image || "/placeholder.svg"}
                     alt={project.title}

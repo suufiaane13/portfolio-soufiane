@@ -5,7 +5,7 @@ import { SectionAnimation } from "@/components/section-animations"
 export function EducationSection() {
   const education = [
     {
-      year: "2022-2025",
+      year: "2023-2025",
       title: "Technicien Spécialisé en Développement Digital",
       description: "Formation en développement web, Mobile",
       institution: "Centre Mixte de Formation Professionnelle, Oujda",
