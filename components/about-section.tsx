@@ -7,7 +7,6 @@ export function AboutSection() {
   const skills = [
     { icon: Code, name: "Frontend", color: "text-blue-500" },
     { icon: Database, name: "Backend", color: "text-green-500" },
-    { icon: Smartphone, name: "Mobile", color: "text-purple-500" }
   ]
 
   return (
