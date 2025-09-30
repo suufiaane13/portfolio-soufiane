@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "next build",
+    "build": "node scripts/copy-assets.js && next build",
     "dev": "next dev",
     "lint": "next lint",
     "start": "next start",
-    "netlify:build": "next build && next export"
+    "netlify:build": "node scripts/copy-assets.js && next build"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

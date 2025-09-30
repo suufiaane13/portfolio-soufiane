@@ -7,6 +7,48 @@
   SECRETS_SCAN_ENABLED = "false"
   SECRETS_SCAN_OMIT_KEYS = "GMAIL_USER,GMAIL_APP_PASSWORD"
 
+# Static files redirects
+[[redirects]]
+  from = "/logo.png"
+  to = "/logo.png"
+  status = 200
+
+[[redirects]]
+  from = "/favicon.ico"
+  to = "/favicon.ico"
+  status = 200
+
+[[redirects]]
+  from = "/profil/*"
+  to = "/profil/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/*.png"
+  to = "/:splat.png"
+  status = 200
+
+[[redirects]]
+  from = "/*.jpg"
+  to = "/:splat.jpg"
+  status = 200
+
+[[redirects]]
+  from = "/*.jpeg"
+  to = "/:splat.jpeg"
+  status = 200
+
+[[redirects]]
+  from = "/*.svg"
+  to = "/:splat.svg"
+  status = 200
+
+[[redirects]]
+  from = "/*.pdf"
+  to = "/:splat.pdf"
+  status = 200
+
+# SPA fallback - must be last
 [[redirects]]
   from = "/*"
   to = "/index.html"

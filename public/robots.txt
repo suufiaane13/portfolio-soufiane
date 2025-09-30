@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://soufiane-hajji.vercel.app/sitemap.xml
+
+# Optimize PDF downloads
+Allow: /CV_Soufiane.pdf

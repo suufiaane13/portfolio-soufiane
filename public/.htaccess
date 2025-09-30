@@ -1,0 +1,18 @@
+# Optimize PDF downloads
+<Files "CV_Soufiane.pdf">
+  Header set Cache-Control "public, max-age=31536000, immutable"
+  Header set Content-Type "application/pdf"
+  Header set Content-Disposition "inline; filename=CV_Soufiane_HAJJI_2025.pdf"
+</Files>
+
+# Compress PDF
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE application/pdf
+</IfModule>
+
+# Enable CORS for PDF
+<Files "CV_Soufiane.pdf">
+  Header set Access-Control-Allow-Origin "*"
+  Header set Access-Control-Allow-Methods "GET, POST, OPTIONS"
+  Header set Access-Control-Allow-Headers "Content-Type"
+</Files>

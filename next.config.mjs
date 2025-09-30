@@ -8,6 +8,17 @@ const nextConfig = {
   },
   images: {
     unoptimized: true,
+    domains: [],
+    remotePatterns: [],
+  },
+  // Serve static files
+  async rewrites() {
+    return [
+      {
+        source: '/:path*',
+        destination: '/:path*',
+      },
+    ]
   },
   // Optimize PDF and static assets
   async headers() {
@@ -31,6 +42,42 @@ const nextConfig = {
       },
       {
         source: '/logo.png',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/profil/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/:path*.png',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/:path*.jpg',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/:path*.jpeg',
         headers: [
           {
             key: 'Cache-Control',

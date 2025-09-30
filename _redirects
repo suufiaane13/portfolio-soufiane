@@ -1,5 +1,15 @@
-# Netlify redirects for SPA
-/*    /index.html   200
+# Static files - serve directly
+/logo.png    /logo.png    200
+/favicon.ico    /favicon.ico    200
+/profil/*    /profil/:splat    200
+/*.png    /:splat.png    200
+/*.jpg    /:splat.jpg    200
+/*.jpeg    /:splat.jpeg    200
+/*.svg    /:splat.svg    200
+/*.pdf    /:splat.pdf    200
 
 # API routes
 /api/contact    /.netlify/functions/contact    200
+
+# SPA fallback - must be last
+/*    /index.html   200
