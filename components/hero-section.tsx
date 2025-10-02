@@ -408,8 +408,8 @@ export function HeroSection() {
           className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto"
         >
         <div className="text-center p-4 rounded-lg bg-card/50 backdrop-blur-sm border border-primary/20 hover:border-primary/40 hover:bg-primary/5 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/10">
-          <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-1">∞</div>
-          <div className="text-xs sm:text-sm text-muted-foreground">Innovation</div>
+          <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-1">5★</div>
+          <div className="text-xs sm:text-sm text-muted-foreground">Excellence</div>
         </div>
           <div className="text-center p-4 rounded-lg bg-card/50 backdrop-blur-sm border border-primary/20 hover:border-primary/40 hover:bg-primary/5 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/10">
             <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-1">15+</div>

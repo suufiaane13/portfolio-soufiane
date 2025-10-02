@@ -6,21 +6,21 @@ export function InterestsSection() {
   const interests = [
     {
       icon: Waves,
-      title: "Natation - Footing",
-      description: "Sports aquatiques et course à pied pour maintenir une bonne condition physique",
-      shortDescription: "Sports aquatiques et course à pied",
+      title: "Sport & Fitness",
+      description: "Natation, course à pied et activités physiques pour maintenir un équilibre de vie sain",
+      shortDescription: "Sport & Fitness",
     },
     {
       icon: Crown,
-      title: "Jeu d'échecs",
-      description: "Stratégie et réflexion à travers ce jeu millénaire",
-      shortDescription: "Stratégie et réflexion",
+      title: "Stratégie",
+      description: "Échecs, jeux de stratégie et réflexion pour développer la pensée analytique",
+      shortDescription: "Stratégie",
     },
     {
       icon: Laptop,
-      title: "Culture Tech",
-      description: "Veille technologique et découverte des dernières innovations",
-      shortDescription: "Veille technologique et innovations",
+      title: "Innovation",
+      description: "Veille technologique, découverte des dernières tendances et innovations digitales",
+      shortDescription: "Innovation",
     },
   ]
 
@@ -36,21 +36,33 @@ export function InterestsSection() {
           <p className="text-muted-foreground text-sm md:text-lg">Ce qui me passionne en dehors du code</p>
         </div>
 
-        {/* Mobile: Simple horizontal layout */}
+        {/* Mobile: Professional 3-column grid */}
         <div className="block md:hidden">
-          <div className="grid grid-cols-3 gap-2">
+          <div className="grid grid-cols-3 gap-3">
             {interests.map((interest, index) => (
               <Card
                 key={index}
-                className="p-2 text-center bg-card border-border hover:border-primary transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 group"
+                className="relative p-3 text-center bg-gradient-to-br from-card to-card/80 backdrop-blur-sm border border-primary/20 hover:border-primary/40 transition-all duration-500 hover:shadow-xl hover:shadow-primary/10 group hover:scale-105 overflow-hidden"
               >
-                <div className="flex justify-center mb-2">
-                  <div className="p-1.5 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors">
-                    <interest.icon className="w-4 h-4 text-primary" />
+                {/* Background gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                {/* Icon with professional styling */}
+                <div className="relative flex justify-center mb-3">
+                  <div className="p-2 bg-gradient-to-br from-primary/20 to-primary/30 rounded-xl group-hover:from-primary/30 group-hover:to-primary/40 transition-all duration-300 shadow-lg">
+                    <interest.icon className="w-5 h-5 text-primary" />
                   </div>
                 </div>
-                <h3 className="text-xs font-semibold mb-1 leading-tight">{interest.title}</h3>
-                <p className="text-muted-foreground text-xs text-pretty leading-tight">{interest.shortDescription}</p>
+                
+                {/* Title with better typography */}
+                <h3 className="relative text-sm font-bold mb-2 leading-tight text-foreground group-hover:text-primary transition-colors duration-300">
+                  {interest.title}
+                </h3>
+                
+                {/* Description with improved readability */}
+                <p className="relative text-muted-foreground text-xs text-pretty leading-relaxed group-hover:text-foreground/80 transition-colors duration-300">
+                  {interest.description}
+                </p>
               </Card>
             ))}
           </div>
