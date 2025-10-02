@@ -17,7 +17,6 @@ export function HeroSection() {
   const titleRef = useRef<HTMLHeadingElement>(null)
   const subtitleRef = useRef<HTMLHeadingElement>(null)
   const descriptionRef = useRef<HTMLParagraphElement>(null)
-  const buttonRef = useRef<HTMLButtonElement>(null)
   const logoRef = useRef<HTMLDivElement>(null)
   const scrollIndicatorRef = useRef<HTMLDivElement>(null)
   const floatingIconsRef = useRef<HTMLDivElement>(null)
@@ -81,7 +80,7 @@ export function HeroSection() {
           }, "-=2")
         }
 
-      // Animation du titre principal avec effet de révélation
+      // Animation du titre principal avec effet de révélation - commence avec le logo
       if (titleRef.current) {
         tl.fromTo(titleRef.current,
           { 
@@ -97,12 +96,12 @@ export function HeroSection() {
             rotationX: 0,
             duration: 1.5,
             ease: "power3.out"
-          }, "-=1.5"
+          }, "-=2.5" // Commence en même temps que le logo
         )
       }
 
 
-      // Animation du sous-titre
+      // Animation du sous-titre - commence avec le logo
       if (subtitleRef.current) {
         tl.fromTo(subtitleRef.current,
           { 
@@ -114,11 +113,11 @@ export function HeroSection() {
             opacity: 1,
             duration: 0.8,
             ease: "power2.out"
-          }, "-=0.8"
+          }, "-=2.2" // Commence en même temps que le logo
         )
       }
 
-      // Animation de la description
+      // Animation de la description - commence avec le logo
       if (descriptionRef.current) {
         tl.fromTo(descriptionRef.current,
           { 
@@ -130,27 +129,10 @@ export function HeroSection() {
             opacity: 1,
             duration: 0.6,
             ease: "power2.out"
-          }, "-=0.6"
+          }, "-=2.0" // Commence en même temps que le logo
         )
       }
 
-      // Animation du bouton
-      if (buttonRef.current) {
-        tl.fromTo(buttonRef.current,
-          { 
-            y: 20, 
-            opacity: 0,
-            scale: 0.9
-          },
-          { 
-            y: 0, 
-            opacity: 1,
-            scale: 1,
-            duration: 0.5,
-            ease: "back.out(1.7)"
-          }, "-=0.4"
-        )
-      }
 
       // Animation des icônes flottantes
       if (floatingIconsRef.current?.children) {
@@ -186,11 +168,11 @@ export function HeroSection() {
             duration: 0.6,
             ease: "power2.out",
             stagger: 0.1
-          }, "-=0.4"
+          }, "-=1.5" // Commence en même temps que le logo
         )
       }
 
-      // Animation de l'indicateur de scroll
+      // Animation de l'indicateur de scroll - commence avec le logo
       tl.fromTo(scrollIndicatorRef.current,
         { 
           y: 20, 
@@ -201,7 +183,7 @@ export function HeroSection() {
           opacity: 1,
           duration: 0.5,
           ease: "power2.out"
-        }, "-=0.2"
+        }, "-=1.2" // Commence en même temps que le logo
       )
 
       // Animation continue des icônes flottantes (responsive)
@@ -382,25 +364,6 @@ export function HeroSection() {
           Je transforme vos idées en expériences digitales exceptionnelles. 
         </p>
 
-        <div className="flex flex-row gap-3 sm:gap-4 md:gap-6 justify-center items-center mb-8 sm:mb-12">
-        <Button
-          ref={buttonRef}
-          size="lg"
-          className="bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground px-4 sm:px-6 md:px-8 py-3 sm:py-4 text-sm sm:text-base md:text-lg lg:text-xl font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/20 border border-primary/20 hover:border-primary/40 flex-1 cursor-pointer"
-          onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
-        >
-          Voir mes projets
-        </Button>
-          
-          <Button
-            variant="outline"
-            size="lg"
-            className="border-2 border-primary/60 text-primary hover:bg-primary hover:text-white px-4 sm:px-6 md:px-8 py-3 sm:py-4 text-sm sm:text-base md:text-lg lg:text-xl font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/20 bg-background/50 hover:bg-primary/90 flex-1 cursor-pointer"
-            onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-          >
-            Me contacter
-          </Button>
-        </div>
 
         {/* Stats Section */}
         <div 
@@ -408,7 +371,7 @@ export function HeroSection() {
           className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto"
         >
         <div className="text-center p-4 rounded-lg bg-card/50 backdrop-blur-sm border border-primary/20 hover:border-primary/40 hover:bg-primary/5 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/10">
-          <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-1">5★</div>
+          <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-1" style={{ filter: 'brightness(0) invert(1)' }}>⭐</div>
           <div className="text-xs sm:text-sm text-muted-foreground">Excellence</div>
         </div>
           <div className="text-center p-4 rounded-lg bg-card/50 backdrop-blur-sm border border-primary/20 hover:border-primary/40 hover:bg-primary/5 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/10">

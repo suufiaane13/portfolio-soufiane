@@ -112,15 +112,15 @@ export function ProjectsSection() {
               className="overflow-hidden bg-card border-border hover:border-primary transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 group"
             >
                 <div className="relative overflow-hidden h-48">
-                  <img
-                    src={project.image || "/placeholder.svg"}
-                    alt={project.title}
+                <img
+                  src={project.image || "/placeholder.svg"}
+                  alt={project.title}
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                     loading="lazy"
                     onError={(e) => {
                       e.currentTarget.src = "/placeholder.svg"
                     }}
-                  />
+                />
                 <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
 
