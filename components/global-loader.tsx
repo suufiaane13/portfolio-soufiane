@@ -40,112 +40,74 @@ export function GlobalLoader({ onComplete }: GlobalLoaderProps) {
       // Timeline principale
       const tl = gsap.timeline()
 
-      // 1. Révélation du logo avec effet "zoom-in" professionnel
+      // 1. Animation simple, fluide et professionnelle du logo (6 secondes)
       if (logoRef.current) {
         tl.fromTo(logoRef.current, {
           opacity: 0,
-          scale: 0.1,
-          rotation: -45,
+          scale: 0.3,
+          rotation: -180,
           y: 80,
           x: 0
         }, {
           opacity: 1,
-          scale: 1.3,  // Logo plus grand
+          scale: 1.2,
           rotation: 0,
           y: 0,
           x: 0,
-          duration: 1.8,
+          duration: 2.0,
           ease: "power3.out"
         })
-      }
-
-      // 1.5. Ajustement de la taille finale
-      if (logoRef.current) {
-        tl.to(logoRef.current, {
-          scale: 1.2,  // Taille finale plus grande
-          duration: 0.4,
-          ease: "power2.out"
-        })
-      }
-
-      // 2. Animation de "bounce" professionnel (ajusté pour la grande taille)
-      if (logoRef.current) {
-        tl.to(logoRef.current, {
-          y: -20,  // Mouvement plus grand
-          duration: 0.6,
-          ease: "power2.out"
-        })
+        // Animation de rotation fluide
         .to(logoRef.current, {
-          y: 0,
-          duration: 0.8,
-          ease: "bounce.out"
-        })
-      }
-
-      // 3. Animation de "tilt" élégant (ajusté pour la grande taille)
-      if (logoRef.current) {
-        tl.to(logoRef.current, {
-          rotation: 4,
-          scale: 1.25,  // Plus grand pendant le tilt
-          duration: 0.4,
+          rotation: 360,
+          duration: 1.5,
           ease: "power2.inOut"
         })
+        // Animation continue de pulsation professionnelle
         .to(logoRef.current, {
-          rotation: -3,
-          scale: 1.22,  // Ajusté pour la grande taille
-          duration: 0.4,
-          ease: "power2.inOut"
-        })
-        .to(logoRef.current, {
-          rotation: 0,
-          scale: 1.2,  // Retour à la taille finale
-          duration: 0.6,
-          ease: "power3.out"
-        })
-      }
-
-      // 4. Animation de "float" subtile (ajusté pour la grande taille)
-      if (logoRef.current) {
-        tl.to(logoRef.current, {
-          y: -12,  // Mouvement plus grand
-          duration: 1.2,
+          scale: 1.05,
+          duration: 1.5,
           ease: "power2.inOut",
           yoyo: true,
           repeat: 1
         })
-      }
-
-      // 5. Animation continue de "breathing" professionnel (ajusté pour la grande taille)
-      if (logoRef.current) {
-        tl.to(logoRef.current, {
-          scale: 1.25,  // Respiration plus visible
-          y: -5,  // Mouvement plus grand
-          duration: 2.5,
-          ease: "power2.inOut",
-          yoyo: true,
-          repeat: -1
-        }, "-=0.5")
+        // Animation finale de stabilisation
+        .to(logoRef.current, {
+          scale: 1.0,
+          duration: 1.0,
+          ease: "power3.out"
+        })
       }
 
 
-      // 3. Révélation du texte
+
+      // 2. Révélation du texte (après les 6 secondes du logo)
       if (textRef.current) {
         tl.to(textRef.current, {
           opacity: 1,
           y: 0,
           duration: 0.8,
           ease: "power3.out"
-        }, "-=0.3")
+        }, "+=0.5") // Commence après les 6 secondes du logo
       }
 
-      // 4. Révélation simultanée de la barre de progression et du pourcentage
+      // 3. Révélation simultanée de la barre de progression et du pourcentage
       if (progressRef.current && percentageRef.current) {
         tl.to([progressRef.current, percentageRef.current], {
           opacity: 1,
           y: 0,
           duration: 0.6,
           ease: "power3.out"
-        }, "-=0.2")
+        }, "+=0.3") // Commence après le texte
+      }
+
+      // 4. Remontement de tout le contenu (logo + texte + barre + pourcentage)
+      if (logoRef.current && textRef.current && progressRef.current && percentageRef.current) {
+        tl.to([logoRef.current, textRef.current, progressRef.current, percentageRef.current], {
+          y: -60,  // Remonter tout le contenu y compris le pourcentage
+          duration: 0.8,
+          ease: "power2.out"
+        }, "+=0.2") // Commence après la barre de progression
       }
 
       // 5. Animation synchronisée de la barre de progression et du pourcentage
@@ -199,7 +161,7 @@ export function GlobalLoader({ onComplete }: GlobalLoaderProps) {
       {/* Logo animé plus grand */}
       <div 
         ref={logoRef}
-        className={`relative w-40 h-40 mb-8 z-10 ${!isAnimating ? 'opacity-0' : ''}`}
+        className={`relative w-48 h-48 mb-8 z-10 ${!isAnimating ? 'opacity-0' : ''}`}
       >
         <Image
           src="/logo.png"

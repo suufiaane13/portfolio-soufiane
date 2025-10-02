@@ -39,48 +39,98 @@ export function HeroSection() {
       // Timeline principale
       const tl = gsap.timeline()
 
-      // Animation du logo background
-        // Logo Animation - Multiple professional effects
+      // Animation du logo background - Complètement nouvelle
+        // Logo Animation - Effet de zoom et rotation multiple
         if (logoRef.current) {
           tl.fromTo(logoRef.current, 
             { 
-              scale: 0.3, 
+              scale: 0.1, 
               opacity: 0,
-              rotation: -180,
-              y: 100
+              rotation: -360,
+              y: 200,
+              x: -100
             },
             { 
-              scale: 1, 
-              opacity: 0.05,
+              scale: 1.2, 
+              opacity: 0.08,
               rotation: 0,
               y: 0,
-              duration: 2.5,
-              ease: "elastic.out(1, 0.3)"
+              x: 0,
+              duration: 3.0,
+              ease: "power4.out"
             }
           )
         }
         
-        // Logo continuous breathing animation
+        // Animation de rotation multiple séquentielle
+        if (logoRef.current) {
+          // Première rotation
+          tl.to(logoRef.current, {
+            rotation: 180,
+            scale: 1.3,
+            duration: 1.0,
+            ease: "power2.inOut"
+          })
+          // Deuxième rotation
+          .to(logoRef.current, {
+            rotation: 360,
+            scale: 1.1,
+            duration: 1.2,
+            ease: "power2.inOut"
+          })
+          // Troisième rotation
+          .to(logoRef.current, {
+            rotation: 540,
+            scale: 1.0,
+            duration: 1.0,
+            ease: "power3.out"
+          })
+        }
+        
+        // Animation continue de pulsation - après les rotations
         if (logoRef.current) {
           tl.to(logoRef.current, {
-            scale: 1.05,
-            duration: 3,
+            scale: 1.08,
+            duration: 2.5,
             ease: "power2.inOut",
             yoyo: true,
             repeat: -1
-          }, "-=1.5")
-          
-          // Logo subtle rotation animation
+          }, "+=2.0") // Commence après les rotations (6.2s + 2.0s = 8.2s)
+        }
+
+        // Animation continue de rotation lente - après les rotations
+        if (logoRef.current) {
           tl.to(logoRef.current, {
-            rotation: 5,
-            duration: 4,
+            rotation: "+=360",
+            duration: 8.0,
+            ease: "none",
+            repeat: -1
+          }, "+=2.0") // Commence après les rotations
+        }
+
+        // Animation continue de mouvement vertical - après les rotations
+        if (logoRef.current) {
+          tl.to(logoRef.current, {
+            y: -20,
+            duration: 4.0,
             ease: "power1.inOut",
             yoyo: true,
             repeat: -1
-          }, "-=2")
+          }, "+=2.0") // Commence après les rotations
         }
 
-      // Animation du titre principal avec effet de révélation - commence avec le logo
+        // Animation continue de mouvement horizontal - après les rotations
+        if (logoRef.current) {
+          tl.to(logoRef.current, {
+            x: 15,
+            duration: 6.0,
+            ease: "power1.inOut",
+            yoyo: true,
+            repeat: -1
+          }, "+=2.0") // Commence après les rotations
+        }
+
+      // Animation du titre principal avec effet de révélation - commence exactement à 3.0s
       if (titleRef.current) {
         tl.fromTo(titleRef.current,
           { 
@@ -96,12 +146,12 @@ export function HeroSection() {
             rotationX: 0,
             duration: 1.5,
             ease: "power3.out"
-          }, "-=2.5" // Commence en même temps que le logo
+          }, 3.0 // Commence exactement à 3.0s
         )
       }
 
 
-      // Animation du sous-titre - commence avec le logo
+      // Animation du sous-titre - commence exactement à 3.0s
       if (subtitleRef.current) {
         tl.fromTo(subtitleRef.current,
           { 
@@ -113,11 +163,11 @@ export function HeroSection() {
             opacity: 1,
             duration: 0.8,
             ease: "power2.out"
-          }, "-=2.2" // Commence en même temps que le logo
+          }, 3.0 // Commence exactement à 3.0s
         )
       }
 
-      // Animation de la description - commence avec le logo
+      // Animation de la description - commence exactement à 3.0s
       if (descriptionRef.current) {
         tl.fromTo(descriptionRef.current,
           { 
@@ -129,7 +179,7 @@ export function HeroSection() {
             opacity: 1,
             duration: 0.6,
             ease: "power2.out"
-          }, "-=2.0" // Commence en même temps que le logo
+          }, 3.0 // Commence exactement à 3.0s
         )
       }
 
@@ -153,7 +203,7 @@ export function HeroSection() {
         )
       }
 
-      // Animation des statistiques
+      // Animation des statistiques - commence exactement à 3.0s
       if (statsRef.current?.children) {
         tl.fromTo(statsRef.current.children,
           { 
@@ -168,11 +218,11 @@ export function HeroSection() {
             duration: 0.6,
             ease: "power2.out",
             stagger: 0.1
-          }, "-=1.5" // Commence en même temps que le logo
+          }, 3.0 // Commence exactement à 3.0s
         )
       }
 
-      // Animation de l'indicateur de scroll - commence avec le logo
+      // Animation de l'indicateur de scroll - commence exactement à 3.0s
       tl.fromTo(scrollIndicatorRef.current,
         { 
           y: 20, 
@@ -183,7 +233,7 @@ export function HeroSection() {
           opacity: 1,
           duration: 0.5,
           ease: "power2.out"
-        }, "-=1.2" // Commence en même temps que le logo
+        }, 3.0 // Commence exactement à 3.0s
       )
 
       // Animation continue des icônes flottantes (responsive)
@@ -297,7 +347,7 @@ export function HeroSection() {
           ref={logoRef}
           className="absolute inset-0 flex items-center justify-center"
         >
-          <div className="relative w-80 h-80 sm:w-96 sm:h-96 md:w-[32rem] md:h-[32rem] lg:w-[40rem] lg:h-[40rem]">
+          <div className="relative w-[28rem] h-[28rem] sm:w-[32rem] sm:h-[32rem] md:w-[36rem] md:h-[36rem] lg:w-[40rem] lg:h-[40rem]">
             <Image
               src="/logo.png"
               alt="Soufiane HAJJI - Logo Background"

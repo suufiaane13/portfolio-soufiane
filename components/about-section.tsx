@@ -8,10 +8,10 @@ export function AboutSection() {
   const [imageLoaded, setImageLoaded] = useState(false)
   
   const expertise = [
-    { icon: Code, title: "Frontend Development", description: "React, Next.js", color: "text-blue-500" },
-    { icon: Database, title: "Backend Development", description: "Node.js, PHP, Python", color: "text-green-500" },
-    { icon: Smartphone, title: "Mobile & Responsive", description: "Design adaptatif & PWA", color: "text-purple-500" },
-    { icon: Globe, title: "Web Performance", description: "Optimisation & SEO", color: "text-orange-500" },
+    { icon: Code, title: "Frontend", description: "React, Next.js", color: "text-blue-500" },
+    { icon: Database, title: "Backend", description: "Node.js, PHP, Python", color: "text-green-500" },
+    { icon: Smartphone, title: "Responsive", description: "Design adaptatif & PWA", color: "text-purple-500" },
+    { icon: Globe, title: "Performance", description: "Optimisation & SEO", color: "text-orange-500" },
   ]
 
   return (
@@ -38,7 +38,7 @@ export function AboutSection() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start mb-16">
             
             {/* Photo Section - Enhanced */}
-            <div className="flex justify-center lg:justify-start">
+          <div className="flex justify-center lg:justify-start">
               <div className="relative group">
                 <div className="relative w-64 h-80 md:w-80 md:h-96 lg:w-96 lg:h-[28rem] rounded-3xl overflow-hidden shadow-2xl border-2 border-primary/20 hover:border-primary/40 transition-all duration-700 hover:scale-105 hover:shadow-primary/20">
                   
@@ -64,11 +64,11 @@ export function AboutSection() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
                 </div>
               </div>
-            </div>
+          </div>
 
             {/* Content Section - Enhanced */}
-            <div className="space-y-8">
-              <div>
+          <div className="space-y-8">
+            <div>
                 <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-foreground text-center lg:text-left">
                   Soufiane HAJJI
                 </h3>
@@ -79,30 +79,30 @@ export function AboutSection() {
                 <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
                   Mon approche combine créativité et expertise technique pour transformer vos idées 
                   en solutions digitales innovantes et performantes.
-                </p>
-              </div>
+              </p>
+            </div>
 
               {/* Expertise Cards */}
               <div className="grid grid-cols-2 gap-4">
                 {expertise.map((item, index) => (
                   <Card key={index} className="p-4 bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 group">
-                    <div className="flex items-center space-x-3">
+                  <div className="flex items-center space-x-3">
                       <div className={`p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors`}>
                         <item.icon className={`w-5 h-5 ${item.color}`} />
-                      </div>
-                      <div>
+                    </div>
+                    <div>
                         <h4 className="font-semibold text-sm text-foreground">{item.title}</h4>
                         <p className="text-xs text-muted-foreground">{item.description}</p>
                       </div>
-                    </div>
-                  </Card>
-                ))}
-              </div>
+                  </div>
+                </Card>
+              ))}
             </div>
           </div>
-
         </div>
-      </section>
+
+      </div>
+    </section>
     </SectionAnimation>
   )
 }
