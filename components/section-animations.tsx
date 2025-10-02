@@ -23,8 +23,8 @@ export function SectionAnimation({
   className = "", 
   animationType = "fadeUp",
   delay = 0,
-  duration = 0.8,
-  stagger = 0.1
+  duration = 0.6,
+  stagger = 0.08
 }: SectionAnimationProps) {
   const sectionRef = useRef<HTMLElement>(null)
 
@@ -38,16 +38,20 @@ export function SectionAnimation({
       const initialConfig = getInitialConfig(animationType)
       gsap.set(element, initialConfig)
 
-      // Animation avec ScrollTrigger
+      // Animation avec ScrollTrigger optimisée
       const animationConfig = getAnimationConfig(animationType, duration, stagger)
       
       gsap.to(element, {
         ...animationConfig,
         scrollTrigger: {
           trigger: element,
-          start: "top 80%",
-          end: "bottom 20%",
-          toggleActions: "play none none reverse"
+          start: "top 85%",
+          end: "bottom 15%",
+          toggleActions: "play none none reverse",
+          // Optimisation pour les transitions entre sections
+          onEnter: () => {
+            gsap.set(element, { clearProps: "all" })
+          }
         }
       })
 

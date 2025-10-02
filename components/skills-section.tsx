@@ -51,7 +51,10 @@ export function SkillsSection() {
   return (
     <SectionAnimation 
       animationType="stagger" 
-      className="py-12 md:py-16 px-4 bg-secondary/20"
+      className="py-8 md:py-12 px-4 bg-secondary/20"
+      delay={0.2}
+      duration={0.7}
+      stagger={0.1}
     >
       <section id="skills">
         <div className="container mx-auto max-w-6xl">

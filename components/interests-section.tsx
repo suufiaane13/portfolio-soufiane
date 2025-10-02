@@ -8,16 +8,19 @@ export function InterestsSection() {
       icon: Waves,
       title: "Natation - Footing",
       description: "Sports aquatiques et course à pied pour maintenir une bonne condition physique",
+      shortDescription: "Sports aquatiques et course à pied",
     },
     {
       icon: Crown,
       title: "Jeu d'échecs",
       description: "Stratégie et réflexion à travers ce jeu millénaire",
+      shortDescription: "Stratégie et réflexion",
     },
     {
       icon: Laptop,
       title: "Culture Tech",
       description: "Veille technologique et découverte des dernières innovations",
+      shortDescription: "Veille technologique et innovations",
     },
   ]
 
@@ -35,19 +38,19 @@ export function InterestsSection() {
 
         {/* Mobile: Simple horizontal layout */}
         <div className="block md:hidden">
-          <div className="grid grid-cols-3 gap-3">
+          <div className="grid grid-cols-3 gap-2">
             {interests.map((interest, index) => (
               <Card
                 key={index}
-                className="p-3 text-center bg-card border-border hover:border-primary transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 group"
+                className="p-2 text-center bg-card border-border hover:border-primary transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 group"
               >
                 <div className="flex justify-center mb-2">
-                  <div className="p-2 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors">
-                    <interest.icon className="w-5 h-5 text-primary" />
+                  <div className="p-1.5 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors">
+                    <interest.icon className="w-4 h-4 text-primary" />
                   </div>
                 </div>
-                <h3 className="text-sm font-semibold mb-1 leading-tight">{interest.title}</h3>
-                <p className="text-muted-foreground text-xs text-pretty line-clamp-2">{interest.description}</p>
+                <h3 className="text-xs font-semibold mb-1 leading-tight">{interest.title}</h3>
+                <p className="text-muted-foreground text-xs text-pretty leading-tight">{interest.shortDescription}</p>
               </Card>
             ))}
           </div>

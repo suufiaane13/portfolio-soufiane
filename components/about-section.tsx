@@ -1,9 +1,11 @@
-import React from "react"
+import React, { useState } from "react"
 import { Code, Database, Smartphone } from "lucide-react"
 import { SectionAnimation } from "@/components/section-animations"
 import Image from "next/image"
 
 export function AboutSection() {
+  const [imageLoaded, setImageLoaded] = useState(false)
+  
   const skills = [
     { icon: Code, name: "Frontend", color: "text-blue-500" },
     { icon: Database, name: "Backend", color: "text-green-500" },
@@ -12,7 +14,9 @@ export function AboutSection() {
   return (
     <SectionAnimation 
       animationType="fadeUp" 
-      className="py-16 md:py-20 lg:py-24 px-4 bg-background"
+      className="py-12 md:py-16 lg:py-20 px-4 bg-background"
+      delay={0.1}
+      duration={0.8}
     >
       <section id="about">
         <div className="container mx-auto max-w-7xl">
@@ -34,17 +38,26 @@ export function AboutSection() {
             <div className="flex justify-center md:justify-start">
               <div className="relative group">
                 <div className="relative w-32 h-40 sm:w-40 sm:h-50 md:w-72 md:h-96 lg:w-80 lg:h-96 rounded-2xl overflow-hidden shadow-xl border-2 border-primary/20 hover:border-primary/40 transition-all duration-500 hover:scale-105">
-                    <Image
-                      src="/profil/hajji.png"
-                      alt="Soufiane HAJJI - Développeur Full-Stack"
-                      fill
-                      className="object-cover object-center"
-                      priority
-                      sizes="(max-width: 640px) 128px, (max-width: 768px) 160px, (max-width: 1024px) 288px, 320px"
-                      quality={90}
-                      placeholder="blur"
-                      blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
-                    />
+                  
+                  {/* Skeleton Loading */}
+                  {!imageLoaded && (
+                    <div className="absolute inset-0 bg-gradient-to-br from-muted/50 to-muted/30 animate-pulse">
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></div>
+                    </div>
+                  )}
+                  
+                  <Image
+                    src="/profil/hajji.png"
+                    alt="Soufiane HAJJI - Développeur Full-Stack"
+                    fill
+                    className={`object-cover object-center transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+                    priority
+                    sizes="(max-width: 640px) 128px, (max-width: 768px) 160px, (max-width: 1024px) 288px, 320px"
+                    quality={90}
+                    placeholder="blur"
+                    blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
+                    onLoad={() => setImageLoaded(true)}
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
                 </div>
               </div>
